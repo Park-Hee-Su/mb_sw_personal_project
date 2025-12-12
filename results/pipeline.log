@@ -1,0 +1,89 @@
+Valorant 라운드 예측 파이프라인 시작: 2025-12-07 00:53:15.052961
+====================================================================================================
+
+[2025-12-07 00:53:15] [INFO] 
+====================================================================================================
+[2025-12-07 00:53:15] [STEP] 📂 Step 1: 데이터 로드
+[2025-12-07 00:53:15] [INFO] ====================================================================================================
+[2025-12-07 00:53:25] [INFO] ✅ 데이터 로드 완료
+[2025-12-07 00:53:25] [INFO]    - 총 행: 3,530,696
+[2025-12-07 00:53:25] [INFO]    - 총 컬럼: 35
+[2025-12-07 00:53:25] [INFO]    - 컬럼명: ['Tournament', 'Stage', 'Match Type', 'Match Name', 'Team A_score', 'Team B_score', 'Team A Score_score', 'Team B Score_score', 'Match Result', 'Map', 'Team A_map', 'Team A Score_map', 'Team A Attacker Score', 'Team A Defender Score', 'Team A Overtime Score', 'Team B_map', 'Team B Score_map', 'Team B Attacker Score', 'Team B Defender Score', 'Team B Overtime Score', 'Duration', 'Round Number', 'Eliminator Team', 'Eliminator', 'Eliminator Agent', 'Eliminated Team', 'Eliminated', 'Eliminated Agent', 'Kill Type', 'Team', 'Loadout Value', 'Remaining Credits', 'Type', 'Outcome', 'Year']
+[2025-12-07 00:53:25] [INFO]    - 연도: [2021, 2022, 2023, 2024, 2025]
+[2025-12-07 00:53:25] [INFO]    - 매치: 10,557
+[2025-12-07 00:53:25] [INFO] 
+📋 데이터 미리보기:
+[2025-12-07 00:53:25] [INFO]                 Tournament        Stage   Match Type  \
+0  Valorant Champions 2021  Group Stage  Opening (D)   
+1  Valorant Champions 2021  Group Stage  Opening (D)   
+
+                      Match Name     Team A_score Team B_score  \
+0  Vision Strikers vs FULL SENSE  Vision Strikers   FULL SENSE   
+1  Vision Strikers vs FULL SENSE  Vision Strikers   FULL SENSE   
+
+   Team A Score_score  Team B Score_score         Match Result    Map  ...  \
+0                   2                   0  Vision Strikers won  Haven  ...   
+1                   2                   0  Vision Strikers won  Haven  ...   
+
+  Eliminated Team  Eliminated  Eliminated Agent  Kill Type             Team  \
+0      FULL SENSE         PTC            breach         2k  Vision Strikers   
+1      FULL SENSE         PTC            breach         2k       FULL SENSE   
+
+  Loadout Value  Remaining Credits            Type  Outcome  Year  
+0         22.6k              23.4k  Full buy: 20k+     Loss  2021  
+1         22.1k               0.7k  Full buy: 20k+      Win  2021  
+
+[2 rows x 35 columns]
+[2025-12-07 00:53:25] [INFO] 
+📊 컬럼별 데이터 타입:
+[2025-12-07 00:53:25] [INFO] Tournament                object
+Stage                     object
+Match Type                object
+Match Name                object
+Team A_score              object
+Team B_score              object
+Team A Score_score         int64
+Team B Score_score         int64
+Match Result              object
+Map                       object
+Team A_map                object
+Team A Score_map           int64
+Team A Attacker Score      int64
+Team A Defender Score      int64
+Team A Overtime Score    float64
+Team B_map                object
+Team B Score_map           int64
+Team B Attacker Score      int64
+Team B Defender Score    float64
+Team B Overtime Score    float64
+Duration                  object
+Round Number             float64
+Eliminator Team           object
+Eliminator                object
+Eliminator Agent          object
+Eliminated Team           object
+Eliminated                object
+Eliminated Agent          object
+Kill Type                 object
+Team                      object
+Loadout Value             object
+Remaining Credits         object
+Type                      object
+Outcome                   object
+Year                       int64
+dtype: object
+[2025-12-07 00:53:25] [INFO] 
+====================================================================================================
+[2025-12-07 00:53:25] [STEP] 🔧 Step 2: 특성 추출 및 엔지니어링
+[2025-12-07 00:53:25] [INFO] ====================================================================================================
+[2025-12-07 00:53:26] [INFO] 
+2.1 기존 컬럼 검사
+[2025-12-07 00:53:26] [INFO] ----------------------------------------------------------------------------------------------------
+[2025-12-07 00:53:26] [INFO] 기존 컬럼 (35개): ['Tournament', 'Stage', 'Match Type', 'Match Name', 'Team A_score', 'Team B_score', 'Team A Score_score', 'Team B Score_score', 'Match Result', 'Map', 'Team A_map', 'Team A Score_map', 'Team A Attacker Score', 'Team A Defender Score', 'Team A Overtime Score', 'Team B_map', 'Team B Score_map', 'Team B Attacker Score', 'Team B Defender Score', 'Team B Overtime Score', 'Duration', 'Round Number', 'Eliminator Team', 'Eliminator', 'Eliminator Agent', 'Eliminated Team', 'Eliminated', 'Eliminated Agent', 'Kill Type', 'Team', 'Loadout Value', 'Remaining Credits', 'Type', 'Outcome', 'Year']
+[2025-12-07 00:53:26] [INFO] 
+2.2 기본 컬럼 생성/정제
+[2025-12-07 00:53:26] [INFO] ----------------------------------------------------------------------------------------------------
+[2025-12-07 00:53:26] [INFO]   • Round Number 정제 (숫자로 변환)
+[2025-12-07 00:53:26] [INFO] 
+2.3 타겟 변수 생성
+[2025-12-07 00:53:26] [INFO] ----------------------------------------------------------------------------------------------------

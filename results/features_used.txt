@@ -1,0 +1,19 @@
+사용된 특성 목록 (전반부 12라운드 집계)
+============================================================
+
+1. Team A_score
+2. Team B_score
+3. Team A Score_score
+4. Team B Score_score
+5. Team A Score_map
+6. Team A Attacker Score
+7. Team A Defender Score
+8. Team A Overtime Score
+9. Team B Score_map
+10. Team B Attacker Score
+11. Team B Defender Score
+12. Team B Overtime Score
+13. is_early_round
+14. is_late_round
+15. momentum
+16. map_encoded
